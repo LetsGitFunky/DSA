@@ -67,3 +67,47 @@ var merge = function(left, right) {
 
     return merged.concat(left, right);
 };
+
+///////////////////////////////////////
+
+var dividePlayers = function(skill) {
+
+    const sortedArray = skill.sort((a, b) => a - b);
+
+    // sort the array
+
+    let pointer1 = 0;
+
+    let pointer2 = sortedArray.length - 1;
+
+    // two pointers from the first to the last
+
+    const comparer = sortedArray[pointer1] + sortedArray[pointer2];
+
+    // comparer = sum of first and last
+
+    let totalChemistry = 0
+
+    while (pointer1 < pointer2) {
+
+        let number1 = sortedArray[pointer1];
+
+        let number2 = sortedArray[pointer2];
+
+        // check the sum of the pointers to comparer
+        if ( number1 + number2 === comparer) {
+            // move pointers and add product to total chemistry
+            totalChemistry += (number1 * number2);
+            pointer1++;
+            pointer2--;
+        } else {
+            // return -1 if not equal
+            return -1;
+        }
+    }
+
+    //return total chemistry
+    return totalChemistry;
+
+
+};
