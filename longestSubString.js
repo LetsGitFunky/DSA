@@ -11,3 +11,22 @@ var lengthOfLongestSubstring = function(s) {
     }
     return longLength;
 };
+
+var lengthOfLongestSubstring = function(s) {
+    let start = 0;
+    let current = 0;
+    let set = new Set();
+    let longest = 0;
+
+    while (current < s.length) {
+        if (!set.has(s[current])) {
+            set.add(s[current]);
+            longest = Math.max(longest, current - start + 1)
+            current ++
+        } else {
+            set.delete(s[start])
+            start++;
+        }
+    }
+    return longest;
+};
