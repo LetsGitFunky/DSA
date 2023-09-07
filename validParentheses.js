@@ -1,5 +1,5 @@
 var isValid = function(s) {
-    if (s.length % 2 !== 0) return false;
+    // if (s.length % 2 !== 0) return false;
     let stack = [];
 
     for (let char of s) {
